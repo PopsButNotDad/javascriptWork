@@ -24,4 +24,3 @@ console.log(gridTraveler(2,3));
 console.log(gridTraveler(3,3));
 console.log(gridTraveler(10,10));
 console.log(gridTraveler(18,18));
- 
