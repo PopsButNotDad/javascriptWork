@@ -8,19 +8,19 @@
 //When dimensions are 1,1 then there is 1 way to traverse through the grid. (base case)
 //When any dimenstion is 0 then there is 0 ways to traverse through the grid (base case)
 
-const gridTraveler = (m, n) => {
+const gridTraveler = (m, n, memo = {}) => {
+    const key = m + ',' + n;
+    if(key in memo) return memo[key];
     if (m === 0 || n === 0) return 0;
     if (m === 1 && n === 1) return 1;
 
-    const down = gridTraveler(m - 1, n);
-    const right = gridTraveler(m, n-1);
+    memo[key] =  gridTraveler(m - 1, n, memo) + gridTraveler(m, n-1, memo);
 
-    return down + right;
-}
-
-//console.log(gridTraveler(10, 10));
+    return memo[key];
+};
 
 console.log(gridTraveler(2,3));
 
-console.log(gridTraveler(4,4));
-
+console.log(gridTraveler(3,3));
+console.log(gridTraveler(10,10));
+console.log(gridTraveler(18,18));
