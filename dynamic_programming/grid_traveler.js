@@ -24,3 +24,19 @@ console.log(gridTraveler(2,3));
 console.log(gridTraveler(3,3));
 console.log(gridTraveler(10,10));
 console.log(gridTraveler(18,18));
+
+
+//MEMOIZATION RECIPE
+    //1. Make it work
+        //CAN BE SLOW THAT'S OKAY
+        //Visualize the problem as a tree
+        //Implement the tree using recursion
+            //leaves of the tree are basecase
+        //Test it
+    //2. Make it efficient
+        //add a memo object (hashmap)
+        //add a base case to return memo values
+        //store return values into the memo
+
+
+//LOOK FOR CORRECTNESS THEN MAKE IT EFFICIENT
