@@ -14,21 +14,31 @@ const addLists = (head1, head2) => {
     let current1 = head1;
     let current2 = head2;
 
-    while(current1 !== null && current2 !== null){
+    while(current1 !== null || current2 !== null){
 
 
 
     }
 
 
-    if(current1 === null){
 
-    }
+};
 
-    if(current2 === null){
+const addListsRe = (head1, head2, carry = 0) => {
+    if(head1 === null && head2 === null) return null;
+    const val1 = head1 === null ? 0 : head1.val;
+    const val2 = head2 === null ? 0 : head2.val;
+    const sum = val1 + val2 + carry;
+    const nextCarry = sum > 9 ? 1 : 0;
+    const digit = sum % 10;
+    const resultNode = new Node(sum);
 
-    }
 
+    const next1 = head1 === null ? null : head1.next;
+    const next2 = head2 === null ? null : head2.next;
+    resultNode.next = addListsRe(next1, next2, nextCarry);
+
+    return resultNode;
 
 };
 
