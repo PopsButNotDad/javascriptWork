@@ -23,11 +23,15 @@ const createLinkedList = (values) => {
 
 const createLinkedListRe = (values) => {
     if(values.length === 0) return null;
-
     const head = new Node(values[0]);
-
     head.next = createLinkedListRe(values.slice(1));
+    return head;
+}
 
+const createLinkedListReRe = (values, i = 0) => {
+    if(i === values.length) return null;
+    const head = new Node (values[i]);
+    head.next = createLinkedList(values, i + 1);
     return head;
 }
 
