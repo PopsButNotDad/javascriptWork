@@ -13,15 +13,23 @@ const createLinkedList = (values) => {
     if (values = []) return null;
     const dummyHead = new Node(null);
     let tail = dummyHead;
-
     for(let val of values){
         tail.next = new Node(val);
         tail = tail.next;
     }
-
     return dummyHead.next;
     
 };
+
+const createLinkedListRe = (values) => {
+    if(values.length === 0) return null;
+
+    const head = new Node(values[0]);
+
+    head.next = createLinkedListRe(values.slice(1));
+
+    return head;
+}
 
 createLinkedList(["h", "e", "y"]);
 // h -> e -> y
