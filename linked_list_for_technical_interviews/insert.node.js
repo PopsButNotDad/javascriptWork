@@ -37,8 +37,25 @@ const insertNode = (head, value, index) => {
     
 };
 
-const insertNodeRe = (head, value, index) => {
-    
+const insertNodeRe = (head, value, index, count = 0) => {
+    if (head === null) return null;
+
+    if (index === 0) {
+        const newHead = new Node(value);
+        newHead.next = head;
+        return newHead;
+    }
+
+    if (count === index - 1){
+        const temp = head;
+        head.next = new Node(value);
+        head.next.next = temp;
+        return head;
+    }
+
+    insertNodeRe(head, value, index, count+1);
+    return head;
+
 }
 
 const a = new Node("a");
