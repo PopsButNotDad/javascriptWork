@@ -12,7 +12,7 @@ class Node {
   
 const addLists = (head1, head2) => {
     const dummyHead = new Node(null);
-    let tail = dummyhead;
+    let tail = dummyHead;
     let carry = 0;
     let current1 = head1;
     let current2 = head2;
